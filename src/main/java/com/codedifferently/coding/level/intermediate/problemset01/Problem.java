@@ -16,8 +16,11 @@ public class Problem {
      */
 
     public static String stringCopies(String word, int n) {
+            String temp = "";
+            for (int i = 0; i < n; i++)
+            temp += word;
+            return temp;
 
-        return null;
     }
 
 
@@ -32,8 +35,17 @@ public class Problem {
      */
 
     public static Boolean followedX(String str) {
-
-        return null;
+        //converts string to a char array
+        char[] string = str.toCharArray();
+        if (str.length() < 2)
+            return false;
+        if (string[0] == 'x' && string[1] == 'x') {
+            return true;
+        }
+        if (string[1] == 'x' && string[2] == 'x') {
+            return true;
+        }
+        return false;
     }
 
 
@@ -50,9 +62,19 @@ public class Problem {
      */
 
     public static Integer subTwo(String str) {
-
-        return null;
+if(str.length()<=2){
+    return 0;
+}
+String lastTwo = str.substring(str.length()-2);
+    int count = 0;
+    for(int i = 0; i<str.length()-2; i++){
+        if(str.substring(i,i+2).equals(lastTwo)){
+            count++;
+        }
     }
+    return count;
+    }
+
 
 
     /* Problem 04
@@ -70,8 +92,12 @@ public class Problem {
      */
 
     public static Boolean basicNumbers123(int[] nums) {
-
-        return null;
+        for(int i = 0; i< nums.length -2; i++){
+            if (nums[i] == 1 && nums[i + 1] == 2 && nums[i+2]==3) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
@@ -90,8 +116,15 @@ public class Problem {
      */
 
     public static String scrambleOfLetters(String scramble) {
-
-        return null;
+        String result = "";
+        for(int i = 0; i < scramble.length(); i +=4){
+            int end = i +2;
+            if(end > scramble.length()){
+                end = scramble.length();
+            }
+            result = result + scramble.substring(i, end);
+        }
+        return result;
     }
 
 
